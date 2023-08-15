@@ -1,12 +1,12 @@
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
-  name: portaltest
+  name: k8sazureportal
 spec:
   crd:
     spec:
       names:
-        kind: PortalTest
+        kind: K8sAzurePortal
       validation:
         # Schema for the `parameters` field
         openAPIV3Schema:
