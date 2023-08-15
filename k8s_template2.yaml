@@ -26,5 +26,5 @@ spec:
                apiVersion: "foobar/v1"
                kind: "Placeholder"
              validations:
-             - expression: "object.metadata.name == null"
+             - expression: "object.metadata.name == ''"
                messageExpression: "missing required name, requires: object.metadata.name"
