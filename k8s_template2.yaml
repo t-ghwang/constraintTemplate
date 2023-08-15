@@ -35,5 +35,7 @@ spec:
                apiVersion: "foobar/v1"
                kind: "Placeholder"
              validations:
-             - expression: ""
-               messageExpression: ""
+             - expression: "params.spec.parameters.labels.all(entry, has(object.metadata.name) && entry.key in object.metadata.name)"
+               messageExpression: '"missing required name, requires all of: " + params.spec.parameters.labels.map(entry, entry.key).join(", ")'
+             - expression: "!params.spec.parameters.labels.exists(entry, has(object.metadata.name) && entry.key in object.metadata.name && !string(object.metadata.name[entry.key]).matches(string(entry.allowedRegex)))"
+               message: "regex mismatch"
