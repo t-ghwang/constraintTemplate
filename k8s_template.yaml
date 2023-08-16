@@ -12,8 +12,6 @@ spec:
         openAPIV3Schema:
           type: object
           properties:
-            message:
-              type: string
   targets:
     - target: admission.k8s.gatekeeper.sh
       code:
@@ -26,5 +24,5 @@ spec:
                apiVersion: "foobar/v1"
                kind: "Placeholder"
              validations:
-             - expression: "object.metadata.name != 'good-production'"
+             - expression: "object.metadata.name == 'good-production'"
                messageExpression: "metadata.name must be 'good-production'"
