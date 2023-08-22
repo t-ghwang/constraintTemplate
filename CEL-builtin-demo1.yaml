@@ -25,4 +25,4 @@ spec:
           source:
             validations:
             - expression: "variables.params.labels.all(entry, has(object.metadata.labels) && entry in object.metadata.labels)"
-              messageExpression: '"you must provide labels: "'
+              messageExpression: '"you must provide labels: " + variables.params.labels.join(", ")'
