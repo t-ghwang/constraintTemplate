@@ -19,12 +19,6 @@ spec:
       code:
         - engine: K8sNativeValidation
           source:
-           apiVersion: admissionregistration.k8s.io/v1alpha1
-           kind: ValidatingAdmissionPolicy
-           spec:
-             paramKind:
-               apiVersion: "foobar/v1"
-               kind: "Placeholder"
              validations:
              - expression: "object.metadata.name != null"
                messageExpression: "missing required name, requires: object.metadata.name"
