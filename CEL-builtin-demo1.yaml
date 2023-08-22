@@ -1,4 +1,4 @@
-apiVersion: templates.gatekeeper.sh/v1
+apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
   name: k8srequiredlabels
@@ -24,5 +24,5 @@ spec:
         - engine: K8sNativeValidation
           source:
             validations:
-            - expression: "variables.params.labels.all(entry, has(object.metadata.labels) && entry in object.metadata.labels)"
-              messageExpression: '"you must provide labels: " + variables.params.labels.map(entry, entry.key).join(", ")'
+            - expression: "variables.params.labels.all(label, label in object.metadata.labels)"
+              messageExpression: '"you must provide labels: "'
